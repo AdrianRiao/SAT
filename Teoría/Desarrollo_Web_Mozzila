@@ -1,0 +1,8 @@
+-Transferred: Bytes transferidos (se incluye cabecera y
+se hace compresión)
+-Size: Tamaño del recurso en el servidor
+-Edit and Resend: Editas lo enviado por el servidor y simulas
+que el navegador lo vuelve a recibir (sirve para ver cómo se
+comporta el navegador cuando recibe algo que no espera).
+-Timings Blocked: Tiempo desde que solicito el recurso hasta
+que de verdad lo pido.

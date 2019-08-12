@@ -1,0 +1,8 @@
+CSRF ("Crosfide reference") es un ataque que consiste en que un tercero te envíe
+un formulario con datos ocultos (pass = hola por ejemplo, así cambio contraseña), en el que tu clicas y haces un POST a otro sitio web en 
+el que estás logeado y tienes permisos y cookies.
+
+Esto se soluciona con un csrf token, es decir, un campo oculto en los formularios de mi
+aplicación web que envíe siempre en estos formularios. En futuros POST al servidor el cliente
+envía una cookie y el formulario con el dato oculto que contengan el mismo csrf token. El servidor
+los comparará y verán si son iguales.

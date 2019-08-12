@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href={% static "favicon.ico" %}/>
+        <title>MiTiempo</title>
+        <link rel="stylesheet" href="/main.css">
+    </head>
+
+    <body>
+        <div id="titulo"><h1><u>MiTiempo</u></h1></div>
+        <div id="imagen">
+            {% load static %}
+            <img src={% static "LogoMiTiempo.png" %}>
+        </div>
+        
+        <div id="login_form">
+        {% if user.is_authenticated %}
+            {{ user.username }}
+            <form class="logout" action="/logout/" method="post">
+                {% csrf_token %}
+                <input class="button" type="submit" value="Logout">
+            </form>
+        {% endif %}
+        {% if not user.is_authenticated %}
+            <form class="login" action="/login/" method="post">
+                {% csrf_token %}
+                {{ login_form }}
+                <input class="button" type="submit" value="Login">
+            </form>
+        {% endif %}
+        </div>
+        
+        <div id="menu">
+            <ul>
+                {% block menu %}{% endblock %}
+                <li><a href="/municipios">Todos</a></li>
+                <li><a href="/info">Info</a></li>
+            </ul>
+        </div>
+        
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <p class="info_text">{{ info_text }}</p>
+        
+        <div id="pie">
+        <p>Esta aplicación utiliza datos proporcionados por la 
+        <a href="https://aemet.es">AEMET</a></p>
+        </div>
+    </body>
+</html>

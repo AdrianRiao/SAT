@@ -1,0 +1,6 @@
+- El navegador puede cambiar las cookies a su antojo. Por lo
+tanto el servidor no se puede fíar nunca.
+- Todas las pestañas de mi navegador comparten el mismo dominio
+de cookies.
+- Si el navegador cierra sesión en una aplicación, la cookie se
+invalida en el sevidor.

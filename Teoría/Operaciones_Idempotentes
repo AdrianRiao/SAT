@@ -1,0 +1,46 @@
+Son operaciones que puedo realizar un montón de veces pero a efectos prácticos será como haberla
+realizado una sola vez.
+
+Imaginemos que un cliente hace un GET al servidor diciendo que incremente en +4 el valor de un número, pero la respuesta del servidor se pierde. El cliente no puede estar seguro de que el servidor haya recibido y realizado la operación. Si vuelvo a hacer el mismo GET no sabré si estoy en realidad aumentando el valor en +8.
+
+En vez de que el cliente le diga al servidor que sume +4, puede decirle que quiere que actualice el valor a 4. De esta forma si el cliente reintenta la operación el resultado siempre será el mismo.
+
+Conclusión: Una operación será idempotente si especifico el estado final que deseo. Si la operación indica que realices algo dependiendo del estado actual, eso no será idempotente.
+
+Nota: Podré asegurar que una operación idempotente se ha realizado cuando reciba un 200 OK. Si no lo recibo no estaré seguro de que la operación se ha realizado.
+
+SOLUCIÓN PARA CONVERTIR OPERACIONES QUE NO SON IDEMPOTENTES EN IDEMPOTENTES:
+
+Podemos utilizar "identificadores de transacción", es decir, etiquetas en cada operación que realicemos que represente de forma única esa operación. El servidor, en el caso que reciba dos operaciones con el mismo identificador, se dará cuenta de que es la misma operación y la realizará una sola vez. El servidor deberá guardar en almacenamiento estable las etiquetas que reciba.
+
+En la API declararé esta operación como idempotente, y diré al cliente que si reintenta varias veces la misma operación, el servidor sólo la realizará una sola vez. Para esto necesita guardar los identificadores de operaciones (transacción).
+
+OPERACIONES DE LECTURA:
+
+¿Pedir una página / a un servidor es idempotente? => Sí lo es, ya que la operación es sólo de lectura. Sólo podrá ser no idempotente si actualizo valores en el servidor. Las operaciones de lectura son siempre idempotentes.
+
+OBJETIVO:
+
+Me interesa que las APIs sean persistentes e idempotentes, para que el modelo de fallo sea muy simple y el cliente sólo tenga que reintentar.
+
+Nota: Se dice que una API es persistente si el servicio o la aplicación web lo es. Casi todas las APIs lo son.
+
+¿QUÉ OPERACIONES EN HTTP SON IDEMPOTENTES?:
+
+- GET /:
+	Idempotente, operación de lectura.
+
+- PUT /:
+	Idempotente, ya que le digo el estado final que quiero que modifique.
+
+- DELETE /item:
+	
+	1) Primer caso: Hago la eliminación, se pierde, la vuelvo a realizar, el servidor la recibe y la realiza y me devuelve un 200 OK.
+
+	2) Segundo caso: Hago la eliminación, el servidor la recibe y la realiza pero el 200 OK se pierde, la vuelvo a realizar y recibo un 404.
+
+	Si nos damos cuenta el resultado que obtenemos en ambos casos es el mismo, por lo tanto podemos asumir que la operación es idempotente, ya que en los dos casos el recurso se habrá borrado aunque la respuesta recibida no sea la misma.
+
+- POST /crear:
+	Supuestamente crea un recurso. Hay muchas maneras de hacerlo.
+

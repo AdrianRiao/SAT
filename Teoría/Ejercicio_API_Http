@@ -1,0 +1,71 @@
+Desarrollar una API Http para la siguiente aplicación web: "Lista de la compra".
+
+1) Listar la lista:
+	- Recurso: /
+	- Operación: GET
+	- Semántica: Listar
+
+2) Añadir item:
+	- Recurso: /?item=...&count=...
+	- Operación: GET
+	- Semántica: Añade a la lista
+
+3) Borrar item:
+	- Recurso: /item
+	- Operación: Delete
+	- Semántica: Borra items
+
+4) Actualizar item:
+	- Recurso: /item
+	- Operación: GET
+	- Semántica: Actualizar
+
+Nota: Fijémonos que el punto 4 y el 1 son idénticos en cuanto a recurso y operación. Como esta
+cuarta entrada de la API es igual que la primera deberíamos juntarlar, y definir una sola operación para
+añadir y actualizar. Si las separo sería un error:
+
+1) Listar y actualizar:
+	- Recurso: /
+	- Operación: GET
+	- Semántica: Listar y actualizar la lista
+
+LISTA DE LA COMPRA COMO REST:
+
+Nota: La modelaré como una colección que está en '/'.
+
+/		GET 	listar
+		POST	añado elemento: nombre=... cant=...
+
+/<string>	GET	ver la cantidad
+		PUT	actualizar la cantidad
+		DELETE	borrar
+
+API DE LA COMPRA Y MVC:
+
+- API:
+
+	/	GET		lista (cant > 0)
+
+	/item	GET		obtener cantidad
+		PUT(POST)	actualizar cantidad
+
+- Modelo:
+
+			Items
+	Nombre		Cantidad	Id
+	Leche		2		A
+	Leche		3		B
+
+Nota: el id son las cookies de diferentes usuarios.
+
+- Urls.py:
+
+2 views según la API: / y /item
+	-- "" -> views.lista
+	-- "/<item>" -> views.item
+
+- Views.py
+
+Tendremos 2 funciones
+	1) def lista (request)
+	2) def item (request, item)

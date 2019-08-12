@@ -1,0 +1,32 @@
+<pueblos>
+{% for pueblo in pueblos %}
+<pueblo nombre="{{ pueblo.nombre }}">
+    <enlace>http://www.aemet.es/xml/municipios/localidad_{{ pueblo.ident|slice:"2:" }}.xml</enlace>
+    <datos_geograficos>
+        <altitud >{{ pueblo.altitud }}</altitud>
+        <latitud >{{ pueblo.latitud }}</latitud>
+        <longitud >{{ pueblo.longitud }}</longitud>
+    </datos_geograficos>
+    <prevision_mañana>
+        <prob_precipitacion periodo="00-24">{{ pueblo.prob_precipitacion }}</prob_precipitacion>
+        <temperatura>
+            <máxima>{{ pueblo.max_temp }}</máxima>
+            <mínima>{{ pueblo.min_temp }}</mínima>
+        </temperatura>
+        <descripción>{{ pueblo.descripcion }}</descripción>
+        <viento>
+            <dirección>{{ pueblo.direc_viento }}</dirección>
+            <velocidad>{{ pueblo.vel_viento }}</velocidad>
+        </viento>
+        <sens_termica>
+            <maxima>{{ pueblo.max_sens_termica }}</maxima>
+            <mínima>{{ pueblo.min_sens_termica }}</mínima>
+        </sens_termica>
+        <humedad_relativa>
+            <maxima>{{ pueblo.max_hum_relativa }}</maxima>
+            <mínima>{{ pueblo.min_hum_relativa }}</mínima>
+        </humedad_relativa>
+    </prevision_mañana>
+</pueblo>
+{% endfor %}
+</pueblos>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <li><a href="/">Inicio</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="temp_form">
+        <form action="/municipios/" method="post">
+            {% csrf_token %}
+            {{ temp_form }}
+            <input type="submit" value="enviar">
+        </form>
+    </div>
+    
+    <div class="munis_list_munis">
+        <h1>Lista De Pueblos Seleccionados</h1>
+        {% for pueblo in pueblos %}
+        <ul>
+            <li><a href="/municipios/{{ pueblo.ident }}">{{ pueblo.nombre }}</a>
+            : {{ pueblo.num_coment }} comentarios</li>
+        </ul>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <p><a href="/municipios?format=xml">Descarga como fichero XML</a></p>
+    </div>
+{% endblock %}

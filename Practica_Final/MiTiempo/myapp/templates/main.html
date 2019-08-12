@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="munis_list_main">
+        <h1>Lista De Pueblos</h1>
+        {% for pueblo in pueblos %}
+            <h2><a href="http://www.aemet.es/es/eltiempo/prediccion/municipios/{{ pueblo.nombre|lower }}-{{ pueblo.ident }}">{{ pueblo.nombre }}</a></h2>
+            <h3>Datos Geográficos:</h3>
+                <ul>
+                    <li>Altitud: {{ pueblo.altitud }}</li>
+                    <li>Latitud: {{ pueblo.latitud }}</li>
+                    <li>Longitud: {{ pueblo.longitud }}</li>
+                </ul>
+            <h3>Previsión de tiempo para mañana:</h3>
+                <ul>
+                    <li>Probabilidad de precipitación(0 a 24h): {{ pueblo.prob_precipitacion }}</li>
+                    <li>Temperatura máxima: {{ pueblo.max_temp }}</li>
+                    <li>Temperatura mínima: {{ pueblo.min_temp }}</li>
+                    <li>Descripción: {{ pueblo.descripcion }}</li>
+                </ul>
+            <p><a href="/municipios/{{ pueblo.ident }}">Más información</a></p>
+        {% endfor %}
+    </div>
+    
+    <div class="user_list">
+        <h1>Lista De Usuarios</h1>
+        {% for usuario in usuarios %}
+            <ul>
+                <li>{{ usuario.nombre }}: 
+                {% ifequal usuario.titulo "" %}
+                    <a href="/{{ usuario.nombre }}">Página de {{ usuario.nombre }}</a>
+                {% endifequal %}
+                {% ifnotequal usuario.titulo "" %}
+                    <a href="/{{ usuario.nombre }}">{{ usuario.titulo }}</a>
+                {% endifnotequal %}
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+
+    <div>
+        <p><a href="/?format=xml">Descarga como fichero XML</a></p>
+    </div>
+    
+    <div>
+        <form action="/change_view/" method="post">
+            {% csrf_token %}
+            <input type="submit" value=
+                {% ifequal vista  0 %}
+                    "Ver municipios con probabilidad de lluvia mayor que cero"
+                {% endifequal %}
+                {% ifequal vista 1 %}
+                    "Ver municipios con probabilidad de lluvia igual a cero"
+                {% endifequal %}
+                {% ifequal vista 2 %}
+                    "Ver todos los municipios"
+                {% endifequal %}
+                >
+        </form>
+    </div>
+{% endblock %}

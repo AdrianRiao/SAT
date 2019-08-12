@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<jokelist>
+  <joke title="Van dos">
+    <start>Van dos por una calle</start>
+    <end>y se cae el del medio</end>
+    <end>y luego vienen</end>
+  </joke>
+
+  <joke title="Y otros dos">
+    <start>Otros dos por una calle</start>
+    <end>y se cae el otro del medio</end>
+    <end>y luego vienen los otros dos de nuevo</end>
+  </joke>
+
+</jokelist>

@@ -1,0 +1,9 @@
+{% extends "muni.html" %}
+
+{% block formulario %}
+    <form action="/municipios/{{ ident }}" method="post">
+        {% csrf_token %}
+        {{ coment_form }}
+        <input type="submit" value="Comentar">
+    </form>
+{% endblock %}

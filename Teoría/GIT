@@ -1,0 +1,18 @@
+USO DE GIT:
+
+1) Fork de un repositorio: te copia el repositorio ajeno
+en tu cuenta, para que lo puedas usar tu.
+
+2) 'git clone github.com/...': Te hace un pull del repositorio
+especificado. Clone se utiliza la primera vez que vas a sincronizar
+tu repositorio. Pull se utiliza para las siguientes veces.
+
+3) 'git add ...': Indicas los ficheros que quieres que se sigan
+para una posterior subida al repositorio.
+
+4) 'git commit -m "texto" nombredelfichero': Adjuntas a la subida de
+tu fichero comentarios obligatorios.
+
+5) 'git push': lanzas los ficheros modificados al respositorio.
+
+6) 'git lig': mira los metadatos.

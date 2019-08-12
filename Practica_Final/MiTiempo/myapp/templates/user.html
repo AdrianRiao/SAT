@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <li><a href="/">Inicio</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="munis_list_user">
+        <h1>Lista De Pueblos</h1>
+        {% for pueblo in pueblos %}
+            <h2><a href="http://www.aemet.es/es/eltiempo/prediccion/municipios/{{ pueblo.nombre|lower }}-{{ pueblo.ident }}">{{ pueblo.nombre }}</a></h2>
+                <h3>Datos Geográficos:</h3>
+                    <ul>
+                        <li>Altitud: {{ pueblo.altitud }}</li>
+                        <li>Latitud: {{ pueblo.latitud }}</li>
+                        <li>Longitud: {{ pueblo.longitud }}</li>
+                    </ul>
+                <h3>Previsión de tiempo para mañana:</h3>
+                <ul>
+                    <li>Probabilidad de precipitación(0 a 24h): {{ pueblo.prob_precipitacion }}</li>
+                    <li>Temperatura máxima: {{ pueblo.max_temp }}</li>
+                    <li>Temperatura mínima: {{ pueblo.min_temp }}</li>
+                    <li>Descripción: {{ pueblo.descripcion }}</li>
+                </ul>
+                <p><a href="/municipios/{{ pueblo.ident }}">Más información</a></p>
+                {% block eliminar %}{% endblock %}
+        {% endfor %}
+    </div>
+    
+    {% block change_css %}{% endblock %}
+    {% block change_titulo %}{% endblock %}
+    {% block añadir %}{% endblock %}
+    
+    <div>
+        <p><a href="/{{ usuario }}?format=xml">Descarga como fichero XML</a></p>
+    </div>
+{% endblock %}
+

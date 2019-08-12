@@ -1,0 +1,170 @@
+body {
+    background: #0cd0ea;
+    font: 90% georgia, sans-serif;
+    font-size: {{ tamaño }};
+	line-height: 1.88889;
+	color: #555753;
+	color: {{ color_letra }};
+    background: {{ color_fondo }};
+	margin: 0; 
+	padding: 0;
+}
+
+#titulo{
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    margin-left: 30px;
+    margin-right: 10px;
+    position: absolute;
+    left: 37%;
+}
+
+#titulo h1{
+    position: absolute;
+    top: 6%;
+    left: 7%;
+    font-size: 50px;
+}
+
+#imagen {
+    width: 300px;
+    height: 150px;
+    margin-left: 3px;
+    margin-right: 10px;
+    border: 10px groove black;
+}
+
+#imagen img{
+    width: 300px;
+    height: 150px;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+
+#login_form {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    top: 5%;
+    left: 73%;
+}
+
+#login_form form.login{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    bottom: 15px;
+}
+
+#menu {
+   position: relative;
+   bottom: 20%;
+   border: 3px dotted black;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   background: #31bf9e;
+}
+
+#menu ul{
+   list-style-type: none;
+   text-align: center;
+   font-size: 15px;
+   position: static;
+   bottom: 100%;
+}
+
+#menu li{
+   display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+}
+
+#menu li a {
+   padding: 2px 7px 2px 7px;
+   color: #666;
+   background-color: #eeeeee;
+   border: 1px solid #ccc;
+   text-decoration: none;
+}
+
+#menu li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+
+#content {
+    text-align: center;
+}
+
+#pie {
+    text-align: right;
+    clear: left;
+}
+
+.info_text {
+    text-align: center;
+    clear: left;
+}
+
+.munis_list_main {
+    position: relative;
+    float: left;
+    width:49%;
+    border: 2px solid black;
+    background: #09f168;
+}
+
+.munis_list_munis, .munis_list_user {
+    position: relative;
+    left: 25%;
+    border: 2px solid black;
+    background: #09f168;
+    width:50%;
+    margin-bottom: 3%;
+}
+
+.data_muni {
+    position: relative;
+    left: 25%;
+    border: 2px solid black;
+    background: #09f168;
+    width:50%;
+}
+
+.comentarios {
+    position: relative;
+    left: 25%;
+    border: 2px solid black;
+    background: #09f168;
+    width:50%;
+}
+
+.user_list {
+    position: relative;
+    float: right;
+    width:49%;
+    border: 1px solid black;
+    background: #09f168;
+}
+
+.temp_form {
+    margin-bottom: 15px;
+}
+
+.css_form, .titulo_form, .add_form{
+    width: 200px;
+    height: 200px;
+    float: left;
+    text-align: center;
+    margin: 1% 8.5%;
+}
+
+.informacion {
+    position:relative;
+    left:15%;
+    width: 70%;
+    text-align: center;
+}

@@ -1,0 +1,12 @@
+Cuando estas en un sitio web e inicias sesion, se envía al servidor
+tu usuario y contraseña. Ese usuario y contraseña se comprueban en una
+base de datos en el servidor. Si es correcto, el servidor te envía una
+cookie indicandote un identificador de sesión, que el servidor se guarda
+en otra base de datos indicando que ese identificador de sesion
+corresponde a tu usuario. En futuras interacciones se enviará este
+identificador de sesión al servidor, que únicamente comprobará
+la segunda base de datos mencionada.
+
+El proceso que tiene que ver con la primera tabla o base de datos
+es la autenticación. El proceso que tiene que ver con la segunda
+tabla o base de datos es la sesión. Son cosas totalmente distintas.

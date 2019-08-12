@@ -1,0 +1,18 @@
+El comando curl sirve para enviar peticiones HTTP y recibirlas.
+
+Te muestra lo que manda con -v.
+Te muestra lo que recibe con -i.
+
+EJEMPLOS:
+curl -i -XPOST http://gamma00:1234
+curl -i -XGET http://gamma00:1234
+curl -i http://gamma00:1234 ## Se envía un GET por defecto
+curl -v -i -XGET http://gamma00:1234
+
+¿Cómo le envío cookie al servidor con curl?
+
+curl -v -XGET -H "Cookie id=..." http://gamma00:1234 ##Con -H le envío la cabecera que quiero
+
+Conclusiones: Con curl se puede controlar toda la petición HTTP. Curl
+no es un navegador, sólo veo la interacción con el servidor. Util para
+depurar.

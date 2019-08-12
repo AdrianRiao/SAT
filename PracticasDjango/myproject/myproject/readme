@@ -1,0 +1,4 @@
+NOTA: el fichero __init__.py da el privilegio a la carpeta en la
+que está, en este caso 'myproject', a ser un módulo en python. De esta
+manera podemos llamar al módulo desde otra zona de la forma
+myproject.loquesea.

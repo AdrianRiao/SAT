@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <li><a href="/">Inicio</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="informacion">
+        <h3>Autor de la práctica:</h3>
+            <ul>
+                <li>Nombre: Adrián Omar Riao Monsalve</li>
+                <li>Titulación: Ingeniería en tecnologías de la telecomunicación</li>
+                <li>Universidad: Rey Juan Carlos</li>
+            </ul>
+        <h3>Funcionamiento de la práctica:</h3>
+            <ul>
+                <li>Página principal</li>
+                    <p>Muestra los 10 municipios seleccionados con más comentarios,
+                    además de la lista de usuarios registrados. Existe la posibilidad de filtrar los municipios por
+                    su probabilidad de precipitación.</p>
+                <li>Página de todos los municipios</li>
+                    <p>Muestra todos los municipios seleccionados al menos 1 vez con sus
+                    respectivos comentarios. Existe la posibilidad de filtrar los municipios en función
+                    de su temperatura máxima.</p>
+                <li>Página de cada municipio</li>
+                    <p>Muestra todos los datos relevantes del municipio, además
+                    de sus comentarios. En el caso de estar loggeado se facilita la posibilidad
+                    de aportar un comentario al municipio.</p>
+                <li>Página de cada usuario</li>
+                    <p>Muestra todos los municipios seleccionados por el usuario en
+                    concreto. En caso de estar loggeado y visitar tu página, se facilita
+                    la posibilidad de cambiar el diseño de la web, añadir nuevos municipios,
+                    eliminar municipios seleccionados y cambiar el título de tu página personal.</p>
+            </ul>
+    </div>
+{% endblock %}

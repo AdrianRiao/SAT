@@ -1,0 +1,32 @@
+{% extends "user.html" %}
+
+{% block change_css %}
+    <form class="css_form" action="/{{ usuario }}/" method="post">
+        {% csrf_token %}
+        {{ css_form }}
+        <input type="submit" name="Cambiar CSS" value="Cambiar CSS">
+    </form>
+{% endblock %}
+
+{% block change_titulo %}
+    <form class="titulo_form" action="/{{ usuario }}/" method="post">
+        {% csrf_token %}
+        {{ titulo_form }}
+        <input type="submit" name="Cambiar titulo" value="Cambiar titulo">
+    </form>
+{% endblock %}
+
+{% block añadir %}
+    <form class="add_form" action="/{{ usuario }}/" method="post">
+        {% csrf_token %}
+        {{ añadir_form }}
+        <input type="submit" name="Añadir municipio" value="Añadir municipio">
+    </form>
+{% endblock %}
+
+{% block eliminar %}
+    <form action="/{{ usuario }}/{{ pueblo.ident }}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar municipio">
+    </form>
+{% endblock %}

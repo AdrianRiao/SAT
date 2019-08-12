@@ -1,0 +1,33 @@
+Situación: Imaginemos que tenemos un servidor S1 al que varios
+clientes( A y B por ejemplo) acceden frecuentemente. Digamos que
+S1 quiere controlar qué clientes acceden a sus páginas y con qué
+frecuencia, pero quiere delegar esta tarea en otro servidor llamado
+T. El único impedimento es que S1 no se puede poner en contacto con
+T.
+
+¿Cómo T puede crear la tabla de páginas visitadas y frecuencia de
+los clientes de S1?
+
+La solución es que S1 establezca recursos en su HTML de forma que
+cuando los clientes accedan al HTML de S1, este HTML requiera
+que se descargen un recurso adicional, ubicado en T. De esta forma
+los clientes enviarán peticiones a T y T los podrá controlar.
+El recurso que les devuelve T deberá ser no cacheable. Puede ser por
+ejemplo una imagen de 1x1 transparente en el HTML para que los
+usuarios no se den cuenta.
+
+¿Y si hay también un S2 y quiero controlar los dos servidores?
+
+Puedo modificar el recurso en las páginas de S1 que se llame
+s1.jpg y en S2 que se llame s2.jpg
+
+¿Y si quiero saber qué página visitan?
+
+Puedo incluir el nombre de las páginas en estos recursos:
+s1-/, s1-/politica,...
+
+¿Y si quiero asociar al navegador con una persona?
+
+Si T es un servidor de correo por ejemplo (como gmail),
+cuando A se conecte con T ya sabré quién es, ya que me enviará
+su cookies de sesión y yo le identificaré con mi base de datos.

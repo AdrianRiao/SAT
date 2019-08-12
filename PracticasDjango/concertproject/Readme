@@ -1,0 +1,15 @@
+Pasos seguidos para el establecimiento del modelo
+y la aplicación:
+
+1) Diseñar modelo e implementarlo en models.py
+1.2) Registrar el modelo (admin.py)
+2) Dar de alta la app (settings.py)
+3) Crear base de datos (makemigrations y migrate)
+4) Doy de alta en admin (createsuperuser)
+5) Diseñar las URLs:
+	/ --> los conciertos que hay
+	/grupo --> los grupos que hay
+	/grupo/<id> --> los datos del grupo
+	/grupo/new  --> formulario para añadir un grupo
+6) Crear vistas
+7) Plantillas

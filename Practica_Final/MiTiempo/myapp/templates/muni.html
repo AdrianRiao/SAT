@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <li><a href="/">Inicio</a></li>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="data_muni">
+        <h1>{{ pueblo.nombre }}</h1>
+        <h2>Datos Geográficos:</h2>
+            <ul>
+                <li>Altitud: {{ pueblo.altitud }}</li>
+                <li>Latitud: {{ pueblo.latitud }}</li>
+                <li>Longitud: {{ pueblo.longitud }}</li>
+            </ul>
+        <h2>Previsión de tiempo para mañana:</h2>
+            <ul>
+                <li>Probabilidad de precipitación(0 a 24h): {{ pueblo.prob_precipitacion }}</li>
+                <li>Temperatura máxima: {{ pueblo.max_temp }}</li>
+                <li>Temperatura mínima: {{ pueblo.min_temp }}</li>
+                <li>Descripción: {{ pueblo.descripcion }}</li>
+                <li>Dirección Viento: {{ pueblo.direc_viento }}</li>
+                <li>Velocidad Viento: {{ pueblo.vel_viento }}</li>
+                <li>Máxima Sensación Térmica: {{ pueblo.max_sens_termica }}</li>
+                <li>Mínima Sensación Térmica: {{ pueblo.min_sens_termica }}</li>
+                <li>Máxima Humedad Relativa: {{ pueblo.max_hum_relativa }}</li>
+                <li>Mínima Humedad Relativa: {{ pueblo.min_hum_relativa }}</li>
+            </ul>
+        </div>
+        
+        <div class="comentarios">
+        <h2>Comentarios:</h2>
+            {% for comentario in comentarios %}
+            <ul>
+                <li><b></b>Comentado por {{ comentario.usuario.nombre }}</b> : {{ comentario.texto }}</li>
+            </ul>
+            {% endfor %}
+        </div>
+            
+        {% block formulario %}{% endblock %}
+
+        <p><a href="http://www.aemet.es/es/eltiempo/prediccion/municipios/{{ pueblo.nombre|lower }}-{{ pueblo.ident }}">Página AEMET</a></p>
+    </div>
+{% endblock %}

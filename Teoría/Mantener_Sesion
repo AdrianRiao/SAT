@@ -1,0 +1,10 @@
+Existen 2 formas de mantener estado:
+
+1) En el cliente: Es el servidor el que envía una cookie
+al cliente en la primera llamada. En futuras llamadas el 
+cliente envía esta cookie al servidor.
+
+2) En el servidor: El servidor envía una única cookie al
+cliente, administrándole un ID. En futuras llamadas el cliente
+enviará esta cookie y el servidor mirara en una base de datos
+los datos asociados a ese ID.
